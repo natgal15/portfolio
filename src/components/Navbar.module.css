@@ -1,0 +1,134 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
+}
+
+.scrolled {
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Logo ──────────────────────────────────────────────────── */
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.logoMark {
+  color: var(--teal);
+}
+
+/* ─── Desktop Nav ────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--teal);
+  transition: width 0.3s var(--ease-out);
+}
+
+.link:hover {
+  color: var(--cream);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* ─── CTA Button ─────────────────────────────────────────────── */
+.ctaBtn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--teal);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ctaBtn:hover {
+  background: var(--teal-dim);
+  transform: translateY(-1px);
+}
+
+/* ─── Mobile Hamburger ───────────────────────────────────────── */
+.menuBtn {
+  display: none;
+  color: var(--cream);
+  padding: 0.25rem;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .menuBtn {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg);
+    gap: 2.5rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .navOpen {
+    pointer-events: all;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .link {
+    font-size: 1rem;
+  }
+
+  .ctaBtn {
+    font-size: 0.9rem;
+    padding: 0.7rem 2rem;
+  }
+}

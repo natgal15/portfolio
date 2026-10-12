@@ -1,0 +1,224 @@
+.projects {
+  padding: 7rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.header { margin-bottom: 3.5rem; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--teal);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.sub {
+  color: var(--cream-dim);
+  font-size: 0.97rem;
+  max-width: 440px;
+}
+
+/* ─── Featured ───────────────────────────────────────────────── */
+.featured {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), transparent);
+}
+
+.featured:hover { border-color: var(--teal); }
+
+.featuredMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.projectNum {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.featuredBadge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid rgba(0, 229, 195, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.featuredTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.featuredDesc {
+  color: var(--cream-dim);
+  font-size: 0.97rem;
+  line-height: 1.75;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Tags ───────────────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--cream-dim);
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Links ──────────────────────────────────────────────────── */
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.linkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--teal);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.linkBtn:hover { background: var(--teal-dim); }
+
+.linkGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.linkGhost:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+/* ─── Cards Grid ─────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--teal);
+  transform: translateY(-4px);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cardLinks a {
+  color: var(--cream-dim);
+  transition: color 0.2s;
+  display: flex;
+}
+
+.cardLinks a:hover { color: var(--teal); }
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.cardDesc {
+  color: var(--cream-dim);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .projects { padding: 5rem 1.25rem; }
+  .grid     { grid-template-columns: 1fr; }
+  .featured { padding: 1.75rem; }
+}

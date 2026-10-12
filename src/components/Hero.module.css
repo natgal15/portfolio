@@ -1,0 +1,247 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 7rem 2rem 4rem;
+  overflow: hidden;
+}
+
+/* ─── Background Grid ─────────────────────────────────────────── */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 30%, transparent 100%);
+  opacity: 0.4;
+}
+
+/* ─── Glow Orb ───────────────────────────────────────────────── */
+.orb {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 195, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: orbPulse 6s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%       { transform: scale(1.1); opacity: 0.7; }
+}
+
+/* ─── Inner Content ──────────────────────────────────────────── */
+.inner {
+  position: relative;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeUp 0.9s var(--ease-out) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Availability Badge ─────────────────────────────────────── */
+.greeting {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(0, 229, 195, 0.08);
+  border: 1px solid rgba(0, 229, 195, 0.2);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.9s var(--ease-out) 0.1s both;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ─── Headline ───────────────────────────────────────────────── */
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.9s var(--ease-out) 0.2s both;
+}
+
+.headlineSub {
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.name {
+  color: var(--cream);
+  display: block;
+}
+
+.title {
+  font-style: italic;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* ─── Description ────────────────────────────────────────────── */
+.desc {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--cream-dim);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s var(--ease-out) 0.3s both;
+}
+
+/* ─── Action Buttons ─────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s var(--ease-out) 0.4s both;
+}
+
+.btnPrimary {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--teal);
+  color: var(--bg);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btnPrimary:hover {
+  background: var(--teal-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 229, 195, 0.25);
+}
+
+.btnOutline {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.btnOutline:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* ─── Social Links ───────────────────────────────────────────── */
+.social {
+  display: flex;
+  gap: 1.25rem;
+  animation: fadeUp 0.9s var(--ease-out) 0.5s both;
+}
+
+.social a {
+  color: var(--cream-dim);
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+}
+
+.social a:hover {
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* ─── Scroll Indicator ───────────────────────────────────────── */
+.scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--cream-dim);
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  animation: fadeIn 1s var(--ease-out) 0.8s both, bounce 2s ease-in-out 2s infinite;
+}
+
+.scroll:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateX(-50%) translateY(-3px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(5px); }
+}
+
+/* ─── Year Tag ───────────────────────────────────────────────── */
+.yearTag {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--border);
+  letter-spacing: 0.1em;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.25rem 5rem;
+  }
+
+  .yearTag {
+    display: none;
+  }
+}
