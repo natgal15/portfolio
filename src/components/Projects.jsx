@@ -20,10 +20,19 @@ const PROJECTS = [
     repo: 'https://www.zcs-corp.com',
     featured: false,
   },
+  {
+    number: '03',
+    title: 'HarvestGuard',
+    desc: 'Agri-tech Project | HarvestGuard — a crop monitoring and planning dashboard focused on practical field insights, scheduling support, and smarter decision-making for growers.',
+    tags: ['Agriculture', 'Dashboard', 'Web App', 'Planning'],
+    live: '',
+    repo: 'https://github.com/natgal15/HarvestGuard',
+    featured: false,
+  },
 ]
 
 export default function Projects() {
-  const visibleProjects = PROJECTS.slice(0, 2)
+  const visibleProjects = PROJECTS.slice(0, 3)
 
   return (
     <section id="projects" className={styles.projects}>
@@ -45,9 +54,11 @@ export default function Projects() {
                   <a href={p.repo} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <Github size={16} />
                   </a>
-                  <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label="Live">
-                    <ExternalLink size={16} />
-                  </a>
+                  {p.live && (
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label="Live">
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
                 </div>
               </div>
               <h3 className={styles.cardTitle}>{p.title}</h3>
